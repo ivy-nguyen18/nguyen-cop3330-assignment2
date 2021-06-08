@@ -2,7 +2,7 @@
   * UCF COP 3330 Summer 2021 Assignment 2 Solution
   * Copyright 2021 Ivy Nguyen
   */
- 
+
 package oop.assignment2.ex24.base;
 
 import java.util.Scanner;
@@ -20,9 +20,9 @@ public class Main24 {
         System.out.print("Enter the second string: ");
         String word2 = input.nextLine();
 
-        Anagram anagram = new Anagram(word1, word2);
+        AnagramDetector anagramDetector = new AnagramDetector(word1, word2);
 
-        if(anagram.isAnagram()){
+        if(anagramDetector.isAnagram()){
             System.out.printf("\"%s\" and \"%s\" are anagrams.", word1, word2);
         }else{
             System.out.printf("\"%s\" and \"%s\" are not anagrams.", word1, word2);
