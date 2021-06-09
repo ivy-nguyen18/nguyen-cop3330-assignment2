@@ -7,7 +7,7 @@ package oop.assignment2.ex24.base;
 
 import java.util.Scanner;
 
-public class Main24 {
+public class App {
 
     private static Scanner input = new Scanner(System.in);
 
