@@ -1,13 +1,16 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Ivy Nguyen
+ */
 package oop.assignment2.ex40.challenge1;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 
 public class EmployeeMap {
 
-    private Map<String, Employee> employeeMap;
+    private final Map<String, Employee> employeeMap;
 
     public EmployeeMap(Map<String, Employee> employeeMap){
         this.employeeMap = employeeMap;

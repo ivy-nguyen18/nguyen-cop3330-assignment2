@@ -1,10 +1,13 @@
 package oop.assignment2.ex38.base;
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Ivy Nguyen
+ */
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
-    private static Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.print("Enter a list of numbers, separated by spaces: ");
