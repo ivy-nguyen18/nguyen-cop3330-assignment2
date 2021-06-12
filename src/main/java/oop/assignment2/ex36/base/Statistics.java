@@ -15,7 +15,8 @@ public class Statistics {
     }
 
     public void displayList(){
-        numberList.forEach(numberList -> System.out.print(numberList + ", "));
+        String printList = numberList.toString().replaceAll("[\\[\\]]", " ");
+        System.out.print("Numbers: " + printList);
     }
 
     public double getAverage(){

@@ -1,24 +1,31 @@
 package oop.assignment2.ex37.base;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 public class Password {
-    private int length;
+    private int nLetters;
     private int nSpecChar;
     private int num;
+    private int length;
+    private static final int MAX_LENGTH = 14; //14 being max length for a strong password recommended by Microsoft
     private static Random rand = new Random();
     private List <Character> letterList = new ArrayList<>();
     private List<Character> specCharList = new ArrayList<>();
     private List<Character> numberList = new ArrayList<>();
-    //private List <Character> letterList = List.of('q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m');
-    //private List <Character> specCharList = List.of('!','@','#','$','%','^','&','*','(', ',', ')','_','-','+','/',':','.','{','}','[',']','~','\\');
-    //private List <Character> numberList = List.of('0','1','2','3','4','5','6','7','8','9');
-    private char [] password;
+    private List <Character> password = new ArrayList<>();
 
     public Password(int length, int nSpecChar, int num) {
-        this.length = length;
+
+        while(true){
+            int i = rand.nextInt(MAX_LENGTH) + nSpecChar + num;
+            if(i + nSpecChar + num >= length){
+                this.nLetters = i;
+                break;
+            }
+        }
         this.nSpecChar = nSpecChar;
         this.num = num;
     }
@@ -57,14 +64,20 @@ public class Password {
         initializeSpecCharList();
     }
 
-    public void printLists(){
+    public List <Character> generatePasswords(){
         initializeAllLists();
-        numberList.forEach(System.out::print);
-        System.out.print("\n");
-        specCharList.forEach(System.out::print);
-        System.out.print("\n");
-        letterList.forEach(System.out::print);
-    }
 
+        Collections.shuffle(letterList);
+        Collections.shuffle(specCharList);
+        Collections.shuffle(numberList);
+
+        this.password.addAll(numberList.subList(0, num));
+        this.password.addAll(specCharList.subList(0, nSpecChar));
+        this.password.addAll(letterList.subList(0, nLetters));
+
+        Collections.shuffle(password);
+
+        return password;
+    }
 
 }

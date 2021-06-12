@@ -15,6 +15,6 @@ public class App {
 
         Password requirements = new Password(length, specChar, num);
 
-        requirements.printLists();
+        requirements.generatePasswords().forEach(System.out::print);
     }
 }
