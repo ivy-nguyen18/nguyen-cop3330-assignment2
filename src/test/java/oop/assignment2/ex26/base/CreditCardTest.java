@@ -4,7 +4,6 @@
  */
 package oop.assignment2.ex26.base;
 
-import oop.assignment2.ex26.base.CreditCard;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +15,7 @@ class CreditCardTest {
         CreditCard creditCard = new CreditCard(5000, .12, 100);
 
         int expected = 70;
-        int actual = creditCard.calculateMonthsUntilPaidOff();
+        int actual = creditCard.monthsUntilPaidOff();
 
         assertEquals(expected, actual);
     }
@@ -26,7 +25,7 @@ class CreditCardTest {
         CreditCard creditCard = new CreditCard(10000, .15, 500.756);
 
         int expected = 24;
-        int actual = creditCard.calculateMonthsUntilPaidOff();
+        int actual = creditCard.monthsUntilPaidOff();
 
         assertEquals(expected, actual);
     }

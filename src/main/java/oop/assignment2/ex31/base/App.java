@@ -7,16 +7,30 @@ package oop.assignment2.ex31.base;
 import java.util.Scanner;
 
 public class App {
-    private static Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.print("Resting Pulse: ");
-        int restingPulse = input.nextInt();
+        String restingPulse;
+        String age;
+        HeartRate heartRate = new HeartRate();
 
-        System.out.print("Age: ");
-        int age = input.nextInt();
+        while(true){
+            System.out.print("Resting Pulse: ");
+            restingPulse = input.nextLine();
+            if(!heartRate.setRestingPulse(restingPulse)){
+                continue;
+            }
+            break;
+        }
 
-        HeartRate heartRate = new HeartRate(restingPulse,age);
+        while(true){
+            System.out.print("Age: ");
+            age = input.nextLine();
+            if(!heartRate.setAge(age)){
+                continue;
+            }
+            break;
+        }
         CreateTable table = new CreateTable();
 
         table.createTable(heartRate);

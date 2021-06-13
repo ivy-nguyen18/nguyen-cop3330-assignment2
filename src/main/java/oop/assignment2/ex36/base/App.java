@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
-    private static Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
         ArrayList<Double> numberList = new ArrayList<>();
@@ -25,6 +25,7 @@ public class App {
             }
         }
         Statistics stats = new Statistics(numberList);
+
         stats.displayList();
         System.out.printf("\nThe average is %.2f", stats.getAverage());
         System.out.printf("\nThe minimum is %.2f", stats.getMin());

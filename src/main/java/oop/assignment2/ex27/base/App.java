@@ -7,7 +7,7 @@ package oop.assignment2.ex27.base;
 import java.util.Scanner;
 
 public class App {
-    private static Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
 

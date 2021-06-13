@@ -8,9 +8,22 @@ public class HeartRate {
     private int restingPulse;
     private int age;
 
-    public HeartRate(int restingPulse, int age) {
-        this.age = age;
-        this.restingPulse = restingPulse;
+    public boolean setAge(String age) {
+        try{
+            this.age = Integer.parseInt(age);
+            return true;
+        }catch(NumberFormatException ne){
+            return false;
+        }
+    }
+
+    public boolean setRestingPulse(String restingPulse){
+        try{
+            this.restingPulse = Integer.parseInt(restingPulse);
+            return true;
+        }catch(NumberFormatException ne){
+            return false;
+        }
     }
 
     public double targetHeartRate(double intensity){

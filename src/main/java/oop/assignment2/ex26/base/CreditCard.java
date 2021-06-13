@@ -11,7 +11,7 @@ public class CreditCard {
         this.monthlyPayment = monthlyPayment;
     }
 
-    public int calculateMonthsUntilPaidOff(){
+    public int monthsUntilPaidOff(){
         double dailyRate = apr/365;
         return (int)Math.ceil((-(1.00 / 30) * (Math.log(1 + (balance / monthlyPayment) * (1 - Math.pow(1 + dailyRate, 30)) ) / Math.log(1 + dailyRate))));
     }

@@ -35,7 +35,6 @@ public class FilterValues {
                 newArray.add(i);
             }
         }
-
         return newArray.stream().mapToInt(i -> i).toArray();
     }
 }

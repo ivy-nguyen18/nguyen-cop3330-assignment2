@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.Random;
 
 public class Password {
-    private int nLetters;
-    private int nSpecChar;
-    private int num;
+    private final int nLetters;
+    private final int nSpecChar;
+    private final int num;
     private int length;
     private static final int MAX_LENGTH = 14; //14 being max length for a strong password recommended by Microsoft
-    private static Random rand = new Random();
-    private List <Character> letterList = new ArrayList<>();
-    private List<Character> specCharList = new ArrayList<>();
-    private List<Character> numberList = new ArrayList<>();
-    private List <Character> password = new ArrayList<>();
+    private static final Random rand = new Random();
+    private final List <Character> letterList = new ArrayList<>();
+    private final List<Character> specCharList = new ArrayList<>();
+    private final List<Character> numberList = new ArrayList<>();
+    private final List <Character> password = new ArrayList<>();
 
     public Password(int length, int nSpecChar, int num) {
 
@@ -35,7 +35,6 @@ public class Password {
     }
 
     private void initializeLetters(){
-        List <Character> letterList = new ArrayList<>();
         for(char i = 'a'; i <= 'z'; ++i){
            this.letterList.add(i);
         }
@@ -68,12 +67,15 @@ public class Password {
         initializeSpecCharList();
     }
 
-    public List <Character> generatePasswords(){
-        initializeAllLists();
-
+    private void shuffleAllLists(){
         Collections.shuffle(letterList);
         Collections.shuffle(specCharList);
         Collections.shuffle(numberList);
+    }
+
+    public List <Character> generatePasswords(){
+        initializeAllLists();
+        shuffleAllLists();
 
         this.password.addAll(numberList.subList(0, num));
         this.password.addAll(specCharList.subList(0, nSpecChar));

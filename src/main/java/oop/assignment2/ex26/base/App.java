@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class App {
 
-    private static Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -23,7 +23,7 @@ public class App {
 
         CreditCard creditCard = new CreditCard(balance, apr, monthlyPayment);
 
-        System.out.printf("It will take you %d months to pay off this card.", creditCard.calculateMonthsUntilPaidOff());
+        System.out.printf("It will take you %d months to pay off this card.", creditCard.monthsUntilPaidOff());
 
     }
 }

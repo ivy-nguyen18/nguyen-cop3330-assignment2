@@ -30,11 +30,6 @@ public class Inputs {
 
     public boolean validateEmployeeID(){
         return employeeID.matches("^([A-Z]){2}-[\\d]{4}$");
-        /*char [] s = employeeID.toCharArray();
-        if( Character.isLetter(s[0]) && Character.isLetter(s[1]) && ('-' == s[2])){
-            return Character.isLetter(s[3]) && Character.isLetter(s[4]) && Character.isLetter(s[5]);
-        }
-        return false;*/
     }
 
     public boolean validateZipCode(){
