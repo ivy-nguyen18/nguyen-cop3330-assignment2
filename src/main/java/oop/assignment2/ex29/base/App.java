@@ -11,22 +11,18 @@ public class App {
 
     public static void main(String[] args) {
 
-
-        System.out.print("What is the rate of return? ");
-        while(!input.hasNextInt() || input.hasNext("0")){
-            System.out.println("Sorry, that is not a valid input.");
-            input.next();
+        Input in = new Input();
+        while(true){
             System.out.print("What is the rate of return? ");
+            if(!in.inputSetter(input.nextLine())){
+                System.out.println("Sorry, that is not a valid input.");
+                continue;
+            }
+            break;
         }
 
-        int rateReturn = input.nextInt();
-
-        System.out.printf("It will take %d years to double your initial investment.", yearsRateOfReturn(rateReturn));
-
+        System.out.printf("It will take %d years to double your initial investment.", in.yearsRateOfReturn());
 
     }
 
-    public static int yearsRateOfReturn(int rate){
-        return 72 / rate;
-    }
 }

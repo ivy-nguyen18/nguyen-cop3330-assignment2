@@ -4,17 +4,23 @@
  */
 package oop.assignment2.ex28.base;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int n = 0;
-        for(int i = 1; i <= 5; i++){
+
+        List<Integer> addInt = new ArrayList<>();
+
+        for(int i = 0; i < 5; i++){
             System.out.print("Enter a number: ");
-            n += input.nextInt();
+            addInt.add(input.nextInt());
         }
-        System.out.printf("The total is %d", n);
+
+        AddNumbers total = new AddNumbers();
+        System.out.printf("The total is %d", total.addNumbers(addInt));
     }
 }

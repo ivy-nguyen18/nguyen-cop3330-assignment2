@@ -35,7 +35,7 @@ public class EmployeeMap {
         return employeeMap;
     }
 
-    private ArrayList<String> sortByKey(){
+    public ArrayList<String> sortByKey(){
         initializeEmployees();
         ArrayList<String> sortedKeys = new ArrayList<>(employeeMap.keySet());
         Collections.sort(sortedKeys);

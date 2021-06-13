@@ -8,7 +8,6 @@ import java.util.Random;
 
 public class NumberGame {
     private int difficulty;
-    private int target;
 
     public int numberGameSetter(int difficulty) {
         this.difficulty = difficulty;
@@ -25,11 +24,10 @@ public class NumberGame {
         }else{
             num = rand.nextInt(1000) + 1;
         }
-        this.target = num;
         return num;
     }
 
-    public String checkNumber(int n, int guesses){
+    public String checkNumber(int n, int guesses, int target){
         if(n < target ){
             return "Too low. Guess Again: ";
         }else if( n > target){

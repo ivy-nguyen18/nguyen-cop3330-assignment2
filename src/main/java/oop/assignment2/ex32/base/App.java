@@ -21,7 +21,6 @@ public class App {
                 String in = input.nextLine();
                 difficulty = Integer.parseInt(in);
             }catch(NumberFormatException ne){
-                System.out.println("Please enter a number...");
                 continue;
             }
             NumberGame numberGame = new NumberGame();
@@ -38,7 +37,6 @@ public class App {
 
     public static void guessInput(NumberGame numberGame, int target){
         int number = 0;
-        System.out.println(target);
         System.out.print("I have my number. What's your guess? ");
         do {
             try{
@@ -49,7 +47,7 @@ public class App {
                 System.out.print("Guess again: ");
             }
             ++guess;
-            System.out.print(numberGame.checkNumber(number, guess));
+            System.out.print(numberGame.checkNumber(number, guess, target));
         }while(number != target);
     }
 }

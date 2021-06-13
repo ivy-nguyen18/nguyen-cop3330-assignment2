@@ -9,6 +9,7 @@ import java.util.Random;
 
 public class Winner {
     private ArrayList<String> nameList;
+    private static final Random rand = new Random();
 
     public String setWinner(ArrayList<String> arrayList){
         this.nameList = arrayList;
@@ -16,7 +17,6 @@ public class Winner {
     }
 
     private String getWinner() {
-        Random rand = new Random();
         int n = rand.nextInt(nameList.size());
         return nameList.get(n);
     }

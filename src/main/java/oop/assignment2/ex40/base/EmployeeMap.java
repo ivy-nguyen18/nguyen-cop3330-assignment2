@@ -4,10 +4,7 @@
  */
 package oop.assignment2.ex40.base;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class EmployeeMap {
 
@@ -17,7 +14,7 @@ public class EmployeeMap {
         this.employeeMap = employeeMap;
     }
 
-    private Map<String, Employee> initializeEmployees() {
+    private void initializeEmployees() {
 
         Employee e1 = new Employee("John", "Johnson", "Manager", "2016-12-31");
         Employee e2 = new Employee("Tou", "Xiong", "Software Engineer", "2016-10-05");
@@ -33,7 +30,6 @@ public class EmployeeMap {
         employeeMap.put(e5.getLastName(), e5);
         employeeMap.put(e6.getLastName(), e6);
 
-        return employeeMap;
     }
 
     private ArrayList<String> sortByKey(){
@@ -44,18 +40,24 @@ public class EmployeeMap {
     }
 
     public void printSearchMap (Map<String, Employee> employeeMap, String search){
-        ArrayList<String> sortedKeys = sortByKey();
         String dash = "-";
         System.out.printf("%-20s|%-20s|%-20s\n", "Name", "Position", "Separation Date");
         System.out.println(dash.repeat(20) + "|" + dash.repeat(20) + "|" + dash.repeat(20));
-        for(String x: sortedKeys){
+        for(String x: searchInMap(search)){
+            System.out.println(String.format("%-20s",employeeMap.get(x).getFullName())+ "|" +
+                    String.format("%-20s",employeeMap.get(x).getPosition() )+ "|" +
+                    String.format("%-20s",employeeMap.get(x).getSeparationDate() ));
+        }
+    }
 
+    public List<String> searchInMap(String search){
+        ArrayList<String> sortedKeys = sortByKey();
+        ArrayList <String> found = new ArrayList<>();
+        for(String x: sortedKeys){
             if(employeeMap.get(x).getFirstName().contains(search) || employeeMap.get(x).getLastName().contains(search)){
-                System.out.println(String.format("%-20s",employeeMap.get(x).getFullName())+ "|" +
-                        String.format("%-20s",employeeMap.get(x).getPosition() )+ "|" +
-                        String.format("%-20s",employeeMap.get(x).getSeparationDate() )
-                );
+                found.add(x);
             }
         }
+        return found;
     }
 }

@@ -4,6 +4,7 @@
  */
 package oop.assignment2.ex34.base;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ public class App {
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        List<String> employeeNames = new java.util.ArrayList<>(List.of(
+        List<String> employeeNames = new ArrayList<>(List.of(
                 "John Smith",
                 "Jackie Johnson",
                 "Chris Jones",

@@ -17,8 +17,7 @@ public class App {
             String name = input.nextLine();
             if(name.length() != 0){
                 nameList.add(name);
-            }
-            if(name.length() == 0){
+            } else {
                 Winner winner = new Winner();
                 System.out.printf("The winner is...%s.", winner.setWinner(nameList));
                 break;

@@ -18,7 +18,10 @@ public class Inputs {
     }
 
     public boolean validateName(String s){
-        return s.equals(" ");
+        if(s.equals(" ")){
+            return false;
+        }
+        return s.length() > 0;
     }
 
     public boolean validateNameLength(String s){
@@ -26,12 +29,12 @@ public class Inputs {
     }
 
     public boolean validateEmployeeID(){
-        //return employeeID.matches("^([A-Za-z]){2}-([0-9]){4}$");
-        char [] s = employeeID.toCharArray();
+        return employeeID.matches("^([A-Z]){2}-[\\d]{4}$");
+        /*char [] s = employeeID.toCharArray();
         if( Character.isLetter(s[0]) && Character.isLetter(s[1]) && ('-' == s[2])){
             return Character.isLetter(s[3]) && Character.isLetter(s[4]) && Character.isLetter(s[5]);
         }
-        return false;
+        return false;*/
     }
 
     public boolean validateZipCode(){
@@ -41,28 +44,28 @@ public class Inputs {
     public StringBuilder validateInput(){
         StringBuilder output = new StringBuilder();
         int flag = 0;
-        if(!validateName(firstName)){
-            output.append("The first name must be filled in\n");
+        if(!validateNameLength(firstName)){
+            output.append("The first name must be at least 2 characters long.\n");
             flag = 1;
         }
-        if(!validateNameLength(firstName) && validateName(firstName)){
-            output.append(String.format("\"%s\" ", firstName) + "is not a valid first name. It is too short.\n");
+        if(!validateNameLength(lastName) ){
+            output.append("The first name must be at least 2 characters long.\n");
+            flag = 1;
+        }
+        if(!validateName(firstName)){
+            output.append("The first name must be filled in.\n");
             flag = 1;
         }
         if(!validateName(lastName)){
-            output.append("The last name must be filled in\n");
-            flag = 1;
-        }
-        if(!validateNameLength(lastName) && validateName(lastName)){
-            output.append(String.format("\"%s\" ", lastName) + "is not a valid last name. It is too short.\n");
-            flag = 1;
-        }
-        if(!validateZipCode()){
-            output.append("The ZIP code must be numeric.\n");
+            output.append("The last name must be filled in.\n");
             flag = 1;
         }
         if(!validateEmployeeID()){
-            output.append(employeeID + " is not a valid ID.\n");
+            output.append("The employee ID must be in the format of AA-1234.\n");
+            flag = 1;
+        }
+        if(!validateZipCode()){
+            output.append("The ZIP code must be 5 digit integer.\n");
             flag = 1;
         }
         if(flag == 0){
